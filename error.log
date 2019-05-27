@@ -1,0 +1,16 @@
+[DEBUG][2019-5-27 15:16:31] <mongo> connecting to mongo
+[DEBUG][2019-5-27 15:16:31] <mongo> mongo connected
+[DEBUG][2019-5-27 15:16:31] <mongo> mongo is ready
+[ERROR][2019-5-27 15:16:39] <mongo> no collection named user
+[DEBUG][2019-5-27 15:33:58] <mongo> connecting to mongo
+[DEBUG][2019-5-27 15:33:58] <mongo> mongo connected
+[DEBUG][2019-5-27 15:33:58] <mongo> mongo is ready
+[DEBUG][2019-5-27 15:34:16] <mongo> connecting to mongo
+[DEBUG][2019-5-27 15:34:16] <mongo> mongo connected
+[DEBUG][2019-5-27 15:34:16] <mongo> mongo is ready
+[DEBUG][2019-5-27 15:39:33] <mongo> connecting to mongo
+[DEBUG][2019-5-27 15:39:33] <mongo> mongo connected
+[DEBUG][2019-5-27 15:39:33] <mongo> mongo is ready
+[DEBUG][2019-5-27 15:56:27] <mongo> connecting to mongo
+[DEBUG][2019-5-27 15:56:27] <mongo> mongo connected
+[DEBUG][2019-5-27 15:56:27] <mongo> mongo is ready

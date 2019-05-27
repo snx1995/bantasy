@@ -1,0 +1,12 @@
+{
+    "mongo": {
+        "url": "mongodb://localhost:27017",
+        "db": "banyq",
+        "collections": ["comment", "articles", "statistics", "users"]
+    },
+    "logger": {
+        "format": "[${tag}][${date}] <${flag}> ${message}",
+        "save_to_file": true,
+        "log_file": "error.log"
+    }
+}
