@@ -1,23 +1,28 @@
 const dao = require("../../system/dao");
 const Result = require("../../system/result");
 const User = require("../../entity/user/user_entity");
+const Token = require("../../system/token");
 
 const Authority = {
     "/login": {
         method: "GET",
         handler: (req, res) => {
-        
+            const {account, passwd} = req.query;
+            if (!account || !passwd) {
+                res.send(Result.lackParam("account || passwd"));
+                return;
+            }
         }
     },
     "/register": {
         method: "GET",
         handler: (req, res) => {
-            let {name, birth, addr, sex, signature} = req.query;
-            if (!name) {
-                res.send(Result.lackParam("name"));
+            let {name, birth, addr, sex, signature, passwd} = req.query;
+            if (!name || !passwd) {
+                res.send(Result.lackParam("name || passwd"));
                 return;
             }
-            const user = new User({name, birth, addr, sex, type: User.TYPE_ADMIN, signature});
+            const user = new User({name, birth, addr, sex, type: User.TYPE_ADMIN, signature, passwd});
             dao.insert("users", user, (err, result) => {
                 if (err) {
                     res.send(Result.error());

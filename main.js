@@ -3,6 +3,7 @@ const dao = require("./system/dao");
 const Comment = require("./entity/comment/comment_entity");
 const express = require("express");
 const logger = require("./logger");
+const filter = require("./system/filters");
 
 const AuthorityController = require("./controller/authority/authority");
 
@@ -10,7 +11,7 @@ const TAG = "MAIN";
 
 const app = express();
 
-registerController("/authority", AuthorityController);
+registerController("/auth", AuthorityController);
 
 app.listen(55088);
 

@@ -10,11 +10,12 @@ class User extends Common {
         this.registerDate = new Date().format();
         this.type = user.type;
         this.signature = user.signature;
+        this.passwd = user.passwd;
     }
 }
 
-User.TYPE_ADMIN = "admin";
-User.TYPE_DEVELOPER = "developer";
-User.TYPE_NORMAL = "normal";
+User.TYPE_ADMIN = 0;
+User.TYPE_DEVELOPER = 1;
+User.TYPE_NORMAL = 2;
 
 module.exports = User;
