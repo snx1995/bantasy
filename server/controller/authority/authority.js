@@ -6,12 +6,23 @@ const Token = require("../../system/token");
 const Authority = {
     "/login": {
         method: "GET",
-        handler: (req, res) => {
+        handler(req, res) {
             const {account, passwd} = req.query;
             if (!account || !passwd) {
                 res.send(Result.lackParam("account || passwd"));
                 return;
             }
+            dao.find("users", {id: account}, (err, result) => {
+                if (err) {
+                    res.send(Result.error());
+                    return;
+                }
+                const pswd = result[0].passwd;
+                if (pswd == passwd) {
+                    const token = Token.encode(result[0].id, result[0].type);
+                    res.send(Result.success(token));
+                } else res.send(Result.forbidden("auth failed."));
+            })
         }
     },
     "/register": {
@@ -28,7 +39,7 @@ const Authority = {
                     res.send(Result.error());
                     return;
                 }
-                res.send(Result.success(result));
+                res.send(Result.success(result.insertedId));
             })
         }
     },

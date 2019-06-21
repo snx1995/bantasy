@@ -4,9 +4,10 @@ const passwd = "banyqroot";
 
 const EXPIRED = 1;
 const INVALID = 2;
+const MS_7_DAYS = 604800000;
 
 function encode(id, type, expire) {
-    const buffer = Buffer.from(`${id}.${type}.${expire.getTime()}`);
+    const buffer = Buffer.from(`${id}.${type}.${new Date().getTime() + (expire ? expire : MS_7_DAYS)}`);
     const en64 = buffer.toString("base64");
     const enMd5 = md5(`${en64}.${passwd}`);
     return `${en64}.${enMd5}`;

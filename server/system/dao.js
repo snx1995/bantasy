@@ -1,5 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
-const logger = require("../logger");
+const logger = require("../../logger");
 
 
 const MongoDB = new MongoClient(config.mongo.url, {useNewUrlParser: true});
@@ -43,14 +43,6 @@ MongoDB.connect((err, db) => {
 });
 
 const dao = {
-    cache: {
-        user(id) {
-
-        },
-        article(id) {
-            
-        }
-    },
     insert(col, data, callback) {
         DB.execOnReady(() => {
             const collection = cols[col];
@@ -141,7 +133,17 @@ const dao = {
             }
             collection.find(query).toArray(callback);
         })
-    }
+    },
+    // findOne(col, query, callback) {
+    //     DB.execOnReady(() => {
+    //         const collection = cols[col];
+    //         if (!collection) {
+    //             logger.error(TAG, "no collection named " + col);
+    //             return;
+    //         }
+    //         if (typeof callback == "function") callback(null, collection.findOne(query));
+    //     })
+    // }
 }
 
 

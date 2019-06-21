@@ -1,0 +1,145 @@
+ul.com-primary, ul.com-secondary {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul.com-primary {
+    > li {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        padding-bottom: 0;
+        > .com-content {
+            display: flex;
+            > .com-avatar {
+                flex-shrink: 0;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 20px;
+            }
+            .com-right {
+                flex-grow: 1;
+                height: 100%;
+                border-bottom: 1px solid #95a5a6;
+                padding-bottom: 20px;
+                > .com-name {
+                    color: #95a5a6;
+                    font-size: .9em;
+                }
+                .com-text {
+                    color: #34495e;
+                    font-size: .9em;
+                }
+                > .com-op {
+                    display: flex;
+                    justify-content: space-between;
+                    > * {
+                        flex-shrink: 0;
+                        margin-right: 30px;
+                        font-size: .6em;
+                        color: #95a5a6;
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                    > .op-group {
+                        > * {
+                            margin-right: 10px;
+                        }
+                    }
+                    .op-like, .op-dis, .op-reply, .op-option {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+ul.com-secondary {
+    > li {
+        padding-top: 20px;
+        display: flex;
+        font-size: .8em;
+        > .com-avatar {
+            flex-shrink: 0;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        > .com-secondary-right {
+            > div {
+                padding: 0;
+                margin: 0;
+                font-size: .8em;
+                color: #5a5a5a;
+                > .com-name {
+                    color: #95a5a6;
+                    font-size: .9em;
+                }
+                > .com-reply-to {
+                    color: #95a5a6;
+                    > a {
+                        text-decoration: none;
+                        color: #3498db;
+                    }
+                }
+            }
+            > .com-op {
+                padding-top: 5px;
+                color: #95a5a6;
+                .op-like, .op-reply {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+.com-lv {
+    color: #fff;
+    display: inline-block;
+    width: 19px;
+    height: 9px;
+    vertical-align: middle;
+    margin: 0 5px;
+    background: url("../../img/icons-comment.png") no-repeat;
+    &.lv0 {
+        background-position:  -23px -28px;
+    }
+    &.lv1 {
+        background-position:  -23px -92px;
+    }
+    &.lv2 {
+        background-position:  -23px -156px;
+    }
+    &.lv3 {
+        background-position:  -23px -220px;
+    }
+    &.lv4 {
+        background-position:  -23px -284px;
+    }
+    &.lv5 {
+        background-position:  -23px -348px;
+    }
+    &.lv6 {
+        background-position:  -23px -412px;
+    }
+    &.lv7 {
+        background-position:  -23px -476px;
+    }
+    &.lv8 {
+        background-position:  -23px -540px;
+    }
+    &.lv9 {
+        background-position:  -23px -604px;
+    }
+}
+.blue {
+    ul.com-primary {
+        background: #fff;
+    }
+    ul.com-secondary {
+        background: #fff;
+    }
+}

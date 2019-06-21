@@ -1,0 +1,299 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body, html {
+    width: 100%;
+    height: 100%;
+    /* background: radial-gradient(circle at 100% 0, #3498db, #1abc9c); */
+    background: url("../img/bg.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    min-width: 800px;
+
+}
+.main {
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 100px;
+    width: 100%;
+}
+.main .overlay {
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    background: radial-gradient(500px at 50% 0, #f39c1255, transparent);
+}
+footer {
+    margin-top: 100px;
+    padding: 30px 0;
+    width: 100%;
+    height: 200px;
+    background: #1e272e;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+}
+footer .container {
+    width: 20%;
+    height: 100px;
+    color: #95a5a6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+footer .container a {
+    text-decoration: none;
+    color: inherit;
+}
+footer .container i {
+    font-size: 1.2em;
+    cursor: pointer;
+    position: relative;
+}
+footer .container i::after {
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+footer .container i[class='icon-wechat']::after {
+    content: "";
+    width: 200px;
+    height: 200px;
+    background: url("../img/contact/wechat_code.png");
+    background-size: 100% 100%;
+}
+footer .container i[class='icon-qq']::after {
+    content: "";
+    width: 200px;
+    height: 200px;
+    background-size: 100% 100%;
+    background: url("../img/contact/qq_code.png");
+    background-size: 100% 100%;
+}
+footer .container i[class='icon-weibo']::after {
+    content: "@意想之外bantasy";
+    width: 20em;
+    text-align: center;
+    font-size: .8em;
+}
+footer .container i:hover::after {
+    display: block;
+}
+footer .container i:not(:last-child) {
+    margin-right: 5px;
+}
+footer > div:not(.container) {
+    width: 1px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px 0;
+    background: #95a5a6;
+    background-clip: content-box;
+}
+.console {
+    display: block;
+    width: 100%;
+    height: 2em;
+    border-radius: 5px;
+    color: #95a5a6;
+    text-indent: 1em;
+    outline: none;
+    border: none;
+    background: #2c3e50;
+}
+.inner {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 12px 24px rgba(7, 17, 27, .2);
+    background: #34495e;
+}
+.inner > section:not(:last-child) {
+    margin-bottom: 50px;
+}
+.main > h1 {
+    margin: 50px 0 100px 0;
+    font-size: 72px;
+    font-family: "Microsoft YaHei";
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+.main > h1::before {
+    content: "by bantasy";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+section.style1 {
+    display: flex;
+    flex-direction: column;
+}
+section.style1 .img-container{
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+}
+section.style1 .img-container img {
+    width: 100%;
+    height: auto;
+}
+section.style1 p {
+    background: #fff;
+}
+section.style1 > article {
+    background: #fff;
+}
+section.style1 > article .title-container {
+    padding: 30px 0;
+}
+section.style1 > article h1 {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    font-size: 1.8em;
+    letter-spacing: 10px;
+}
+section.style1 > article h1::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    display: block;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #bdc3c7;
+    font-weight: 100;
+    font-size: .8em;
+    border-bottom: 1px solid #7f8c8d;
+}
+section.style1 > article h2 {
+    text-align: center;
+    padding: 20px;
+    color: #bdc3c7;
+    font-size: .8em;
+    letter-spacing: 5px;
+}
+section.style1 > article p {
+    background: #ecf0f1;
+    padding: 40px;
+    line-height: 2em;
+    color: #7f8c8d;
+    text-indent: 1em;
+}
+/* section.style2 {
+} */
+section.style2 .container {
+    padding: 100px 50px;
+}
+section.style2 .container .title-container {
+    background: #353b48;
+    /* background: radial-gradient(400px at 50% 0, #dfe6e911, #353b48); */
+    padding: 30px 0;
+}
+section.style2 .container .title-container h1 {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    font-size: 1.8em;
+    letter-spacing: 10px;
+}
+section.style2 .container .title-container h1::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100px;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ecf0f1;
+    font-weight: 100;
+    font-size: .8em;
+    border-bottom: 1px solid #7f8c8d;
+}
+section.style2 .container .title-container h2 {
+    text-align: center;
+    padding: 20px;
+    color: #7f8c8d;
+    font-size: .8em;
+    letter-spacing: 5px;
+}
+section.style2 .container .img-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+section.style2 .container .img-container > div {
+    width: 50%;
+
+}
+section.style2 .container .img-container img {
+    width: 100%;
+    height: 100%;
+}
+section.style3 .container {
+    display: flex;
+    flex-wrap: wrap;
+}
+section.style3 .container > div {
+    width: 50%;
+    position: relative;
+    background: #ecf0f1;
+}
+section.style3 .container > div:nth-child(3) {
+    background: #34495e;
+}
+section.style3 .container > div img {
+    width: 100%;
+    height: 100%;
+}
+section.style3 .container > div article {
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+section.style3 .container > div:nth-child(3) article{
+    text-align: end;
+    color: #ecf0f1;
+}
+section.style3 .container > div article h1 {
+    padding: 1em 0;
+    font-size: 1.5em;
+}
+section.style3 .container > div article p {
+    color: #7f8c8d;
+}
+section.style4 .container {
+    padding: 100px 0 0 0;
+    height: 500px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+section.style4 .container > div article {
+    padding: 100px 50px;
+    background: #ecf0f1;
+    height: 100%;
+    box-sizing: border-box;
+}
+section.style4 .container > div img {
+    width: 100%;
+    height: 100%;
+}

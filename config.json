@@ -7,6 +7,6 @@
     "logger": {
         "format": "[${tag}][${date}] <${flag}> ${message}",
         "save_to_file": true,
-        "log_file": "error.log"
+        "log_file": "server.log"
     }
 }

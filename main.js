@@ -1,21 +1,20 @@
 const Config = require("./config");
-const dao = require("./system/dao");
-const Comment = require("./entity/comment/comment_entity");
+const dao = require("./server/system/dao");
+const Comment = require("./server/entity/comment/comment_entity");
 const express = require("express");
 const logger = require("./logger");
-const filter = require("./system/filters");
-
-const AuthorityController = require("./controller/authority/authority");
+const filter = require("./server/system/filters");
 
 const TAG = "MAIN";
-
 const app = express();
 
-registerController("/auth", AuthorityController);
+registerController("/auth", require("./server/controller/authority/authority"));
+registerController("/", require("./server/controller/console"));
 
 app.listen(55088);
 
 function registerController(base, controller) {
+    base = (!base || base == "/") ? "" : base;
     for (let path in controller) {
         if (controller.hasOwnProperty(path)) {
             const ctrller = controller[path];
@@ -31,7 +30,7 @@ function registerController(base, controller) {
                     app.post(base + path, ctrller.handler);
                     break;
                 default:
-                    logger.error(TAG, `invalid controller method <${ctrller.method}>`)
+                    logger.error(TAG, `invalid controller method <${ctrller.method}> for path ${base + path}`)
             }
         }
     }

@@ -11,6 +11,12 @@ const Result = {
             data: `lack necessary param ${param}`
         }
     },
+    forbidden(msg) {
+        return {
+            code: 403,
+            data: msg
+        }
+    },
     error(msg) {
         return {
             code: 500,

@@ -1,0 +1,140 @@
+ul.com-primary,
+ul.com-secondary {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.com-primary > li {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-bottom: 0;
+}
+ul.com-primary > li > .com-content {
+  display: flex;
+}
+ul.com-primary > li > .com-content > .com-avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+ul.com-primary > li > .com-content .com-right {
+  flex-grow: 1;
+  height: 100%;
+  border-bottom: 1px solid #95a5a6;
+  padding-bottom: 20px;
+}
+ul.com-primary > li > .com-content .com-right > .com-name {
+  color: #95a5a6;
+  font-size: .9em;
+}
+ul.com-primary > li > .com-content .com-right .com-text {
+  color: #34495e;
+  font-size: .9em;
+}
+ul.com-primary > li > .com-content .com-right > .com-op {
+  display: flex;
+  justify-content: space-between;
+}
+ul.com-primary > li > .com-content .com-right > .com-op > * {
+  flex-shrink: 0;
+  margin-right: 30px;
+  font-size: .6em;
+  color: #95a5a6;
+}
+ul.com-primary > li > .com-content .com-right > .com-op > *:last-child {
+  margin-right: 0;
+}
+ul.com-primary > li > .com-content .com-right > .com-op > .op-group > * {
+  margin-right: 10px;
+}
+ul.com-primary > li > .com-content .com-right > .com-op .op-like,
+ul.com-primary > li > .com-content .com-right > .com-op .op-dis,
+ul.com-primary > li > .com-content .com-right > .com-op .op-reply,
+ul.com-primary > li > .com-content .com-right > .com-op .op-option {
+  cursor: pointer;
+}
+ul.com-secondary > li {
+  padding-top: 20px;
+  display: flex;
+  font-size: .8em;
+}
+ul.com-secondary > li > .com-avatar {
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+ul.com-secondary > li > .com-secondary-right > div {
+  padding: 0;
+  margin: 0;
+  font-size: .8em;
+  color: #5a5a5a;
+}
+ul.com-secondary > li > .com-secondary-right > div > .com-name {
+  color: #95a5a6;
+  font-size: .9em;
+}
+ul.com-secondary > li > .com-secondary-right > div > .com-reply-to {
+  color: #95a5a6;
+}
+ul.com-secondary > li > .com-secondary-right > div > .com-reply-to > a {
+  text-decoration: none;
+  color: #3498db;
+}
+ul.com-secondary > li > .com-secondary-right > .com-op {
+  padding-top: 5px;
+  color: #95a5a6;
+}
+ul.com-secondary > li > .com-secondary-right > .com-op .op-like,
+ul.com-secondary > li > .com-secondary-right > .com-op .op-reply {
+  cursor: pointer;
+}
+.com-lv {
+  color: #fff;
+  display: inline-block;
+  width: 19px;
+  height: 9px;
+  vertical-align: middle;
+  margin: 0 5px;
+  background: url("../../img/icons-comment.png") no-repeat;
+}
+.com-lv.lv0 {
+  background-position: -23px -28px;
+}
+.com-lv.lv1 {
+  background-position: -23px -92px;
+}
+.com-lv.lv2 {
+  background-position: -23px -156px;
+}
+.com-lv.lv3 {
+  background-position: -23px -220px;
+}
+.com-lv.lv4 {
+  background-position: -23px -284px;
+}
+.com-lv.lv5 {
+  background-position: -23px -348px;
+}
+.com-lv.lv6 {
+  background-position: -23px -412px;
+}
+.com-lv.lv7 {
+  background-position: -23px -476px;
+}
+.com-lv.lv8 {
+  background-position: -23px -540px;
+}
+.com-lv.lv9 {
+  background-position: -23px -604px;
+}
+.blue ul.com-primary {
+  background: #fff;
+}
+.blue ul.com-secondary {
+  background: #fff;
+}
