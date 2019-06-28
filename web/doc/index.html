@@ -5,8 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Doc bantasy</title>
+    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #c0392b;
+        }
+        .container {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background: #ecf0f1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+        }
+        .quarter {
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-left: 20px solid #c0392b;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Doc bantasy</h1>
+    <div class="container">
+        <div class="quarter"></div>
+        <div class="quarter"></div>
+        <div class="quarter"></div>
+        <div class="quarter"></div>
+        <div class="quarter"></div>
+    </div>
 </body>
 </html>

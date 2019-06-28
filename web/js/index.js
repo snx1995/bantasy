@@ -30,10 +30,14 @@
         }
     ]));
 
-    main.addEventListener("scroll", function (event) {
-        console.log(1);
+    // main.addEventListener("scroll", function (event) {
+    //     console.log(1);
+    // })
+
+    document.addEventListener("scroll", function (event) {
+
     })
-    
+
     cons.addEventListener("keydown", event => {
         if (event.keyCode == 13) {
             const ins = cons.value;
