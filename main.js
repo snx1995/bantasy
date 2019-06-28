@@ -30,6 +30,7 @@ function registerController(base, controller) {
                         } catch (e) {
                             logger.error(TAG, `error while call handler ${path}: ${e}`)
                         }
+                        res.send({code: 1, data: "error"})
                     });
                     break;
                 case "POST":
@@ -39,6 +40,7 @@ function registerController(base, controller) {
                         } catch (e) {
                             logger.error(TAG, `error while call handler ${path}: ${e}`)
                         }
+                        res.send({code: 1, data: "error"})
                     });
                     break;
                 default:
