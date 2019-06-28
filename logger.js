@@ -9,7 +9,11 @@ Date.prototype.format = function () {
     const m = this.getMinutes();
     const s = this.getSeconds();
 
-    return `${y}-${M}-${d} ${h}:${m}:${s}`;
+    return `${y}-${f(M)}-${f(d)} ${f(h)}:${f(m)}:${f(s)}`;
+
+    function f(x) {
+        return x < 10 ? ('0' + x) : x;
+    }
 }
 
 const logger = {
