@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "repository": "https://github.com/snx1995/bantasy.git",
     "scripts": {
-        "dev": "node ./server/main.js",
+        "dev": "node ./main.js",
         "develop": ""
     },
     "description": "a demo",
