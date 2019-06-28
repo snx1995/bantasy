@@ -24,10 +24,22 @@ function registerController(base, controller) {
             }
             switch (ctrller.method) {
                 case "GET":
-                    app.get(base + path, ctrller.handler);
+                    app.get(base + path, (req, res) => {
+                        try {
+                            ctrller.handler(req, res);
+                        } catch (e) {
+                            logger.error(TAG, `error while call handler ${path}: ${e}`)
+                        }
+                    });
                     break;
                 case "POST":
-                    app.post(base + path, ctrller.handler);
+                    app.post(base + path, (req, res) => {
+                        try {
+                            ctrller.handler(req, res);
+                        } catch (e) {
+                            logger.error(TAG, `error while call handler ${path}: ${e}`)
+                        }
+                    });
                     break;
                 default:
                     logger.error(TAG, `invalid controller method <${ctrller.method}> for path ${base + path}`)
