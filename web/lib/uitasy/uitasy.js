@@ -18,7 +18,7 @@
         uiImgWrapper.appendChild(img);
         uiImgWrapper.appendChild(el);
 
-        img.src = "/web/img/img_example.png";
+        img.src = "/img/img_example.png";
         uiImgWrapper.classList.add("ui-img-wrapper");
         uiImgWrapper.addEventListener("click", function () {
             el.click();
