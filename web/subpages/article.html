@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>article</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="./css/article.css">
+</head>
+<body>
+    <form action="/article/post">
+        <div class="nav">
+            <select name="type" class="ban-sel">
+                <option value="0" selected>type 0</option>
+                <option value="1">type 1</option>
+                <option value="2">type 2</option>
+            </select>
+            <span>记忆中有明灭的光</span>
+        </div>
+        <div class="article0">
+            <h1>article0</h1>
+        </div>
+        <div class="article1">
+            <h1>article1</h1>
+        </div>
+        <div class="article2">
+            <h1>article2</h1>
+        </div>
+    </form>
+    <script>
+        (function () {
+            var article0 = document.querySelector(".article0")
+            var article1 = document.querySelector(".article1")
+            var article2 = document.querySelector(".article2")
+            document.querySelector("select").addEventListener("change", function () {
+                switch (this.value) {
+                    case '0':
+                        article0.style.display = "block";
+                        article1.style.display = "none";
+                        article2.style.display = "none";
+                        break;
+                    case '1':
+                        article1.style.display = "block";
+                        article0.style.display = "none";
+                        article2.style.display = "none";
+                        break;
+                    case '2':
+                        article2.style.display = "block";
+                        article1.style.display = "none";
+                        article0.style.display = "none";
+                        break;
+                    default:
+                        console.log(this.value);
+                }
+            })
+        })()
+    </script>
+</body>
+</html>

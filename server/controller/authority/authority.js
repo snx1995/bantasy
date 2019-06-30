@@ -2,6 +2,7 @@ const dao = require("../../system/dao");
 const Result = require("../../system/result");
 const User = require("../../entity/user/user_entity");
 const Token = require("../../system/token");
+const Lang = require("../../system/language");
 
 const Authority = {
     "/login": {
@@ -17,11 +18,15 @@ const Authority = {
                     res.send(Result.error());
                     return;
                 }
-                const pswd = result[0].passwd;
-                if (pswd == passwd) {
-                    const token = Token.encode(result[0].id, result[0].type);
-                    res.send(Result.success(token));
-                } else res.send(Result.forbidden("auth failed."));
+                const user = result[0];
+                if (user) {
+                    const pswd = user.passwd;
+                    if (pswd == passwd) {
+                        const token = Token.encode(user.id, user.type);
+                        res.send(Result.success(token));
+                    } else res.send(Result.forbidden(Lang.invalidAccountOrPassword.zhcn));
+                }
+                
             })
         }
     },
