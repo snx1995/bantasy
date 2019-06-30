@@ -5,29 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>article</title>
-    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../lib/uitasy//uitasy.css">
     <link rel="stylesheet" href="./css/article.css">
+    <style>
+        .ui-img {
+            width: 400px;
+            height: 300px;
+        }
+        table {
+            margin: 20px auto;
+        }
+    </style>
 </head>
 <body>
-    <form action="/article/post">
-        <div class="nav">
-            <select name="type" class="ban-sel">
-                <option value="0" selected>type 0</option>
-                <option value="1">type 1</option>
-                <option value="2">type 2</option>
-            </select>
-            <span>记忆中有明灭的光</span>
-        </div>
-        <div class="article0">
-            <h1>article0</h1>
-        </div>
-        <div class="article1">
-            <h1>article1</h1>
-        </div>
-        <div class="article2">
-            <h1>article2</h1>
-        </div>
+    <div class="nav">
+        <select name="type" class="uitasy ui-sel">
+            <option value="0" selected>type 0</option>
+            <option value="1">type 1</option>
+            <option value="2">type 2</option>
+        </select>
+        <span>记忆中有明灭的光</span>
+    </div>
+    <form action="/serv/article/post" class="article0" method="POST" enctype="multipart/form-data">
+        <table class="uitasy ui-table table-border">
+            <tr>
+                <td rowspan="2">标题</td>
+                <td>
+                    主标题：<input type="text" name="title" class="uitasy ui-input">
+                </td>
+                <td rowspan="4">
+                    <img src="../img/article0_example.png" alt="" style="width: 200px">
+                </td>
+            </tr>
+            <tr>
+                <td>副标题：<input type="text" name="subtitle" class="uitasy ui-input"></td>
+            </tr>
+            <tr>
+                <td>封面：</td>
+                <td><input type="file" name="img" class="uitasy ui-img"></td>
+            </tr>
+            <tr>
+                <td>正文：</td>
+                <td><textarea name="article" class="uitasy ui-textarea"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: right">
+                    <input type="text" name="type" value="0" style="display: none">
+                    <input type="reset" value="重置" class="uitasy ui-btn">
+                    <input type="submit" value="提交" class="uitasy ui-btn">
+                </td>
+            </tr>
+        </table>
     </form>
+    <form action="/serv/article/post" class="article1" method="POST" enctype="multipart/form-data">
+        <table class="uitasy ui-table table-border">
+                <tr>
+                    <td rowspan="2">标题</td>
+                    <td colspan="2">
+                        主标题：<input type="text" name="title" class="uitasy ui-input">
+                    </td>
+                    <td rowspan="4">
+                        <img src="../img/article1_example.png" alt="" style="width: 200px">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">副标题：<input type="text" name="subtitle" class="uitasy ui-input"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">封面：</td>
+                    <td><input type="file" name="img1" class="uitasy ui-img"></td>
+                    <td><input type="file" name="img2" class="uitasy ui-img"></td>
+                </tr>
+                <tr>
+                    <td><input type="file" name="img3" class="uitasy ui-img"></td>
+                    <td><input type="file" name="img4" class="uitasy ui-img"></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: right">
+                        <input type="text" name="type" value="1" style="display: none">
+                        <input type="reset" value="重置" class="uitasy ui-btn">
+                        <input type="submit" value="提交" class="uitasy ui-btn">
+                    </td>
+                </tr>
+            </table>
+    </form>
+    <form action="/serv/article/post" class="article2" method="POST" enctype="multipart/form-data">
+        <table class="uitasy ui-table table-border">
+                <tr>
+                    <td rowspan="2">
+                        <input type="file" name="img1" class="uitasy ui-img">
+                    </td>
+                    <td>
+                        主标题：<input type="text" name="title1" class="uitasy ui-input">
+                    </td>
+                    <td rowspan="6">
+                        <img src="../img/article2_example.png" alt="" style="width: 200px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        正文：
+                        <textarea name="article1" class="uitasy ui-textarea"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        主标题：<input type="text" name="title2" class="uitasy ui-input">
+                    </td>
+                    <td rowspan="2">
+                        <input type="file" name="img2" class="uitasy ui-img">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        正文：
+                        <textarea name="article2" class="uitasy ui-textarea"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">
+                        <input type="file" name="img3" class="uitasy ui-img">
+                    </td>
+                    <td>
+                        主标题：<input type="text" name="title3" class="uitasy ui-input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        正文：
+                        <textarea name="article3" class="uitasy ui-textarea"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: right">
+                        <input type="text" name="type" value="2" style="display: none">
+                        <input type="reset" value="重置" class="uitasy ui-btn">
+                        <input type="submit" value="提交" class="uitasy ui-btn">
+                    </td>
+                </tr>
+            </table>
+    </form>
+
+    <script src="../lib/uitasy/uitasy.js"></script>
     <script>
         (function () {
             var article0 = document.querySelector(".article0")

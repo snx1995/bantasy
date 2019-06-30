@@ -1,0 +1,90 @@
+.uitasy {
+    outline: none;
+    box-sizing: border-box;
+}
+.ui-sel {
+    background: transparent;
+    display: block;
+    height: 2em;
+    box-sizing: border-box;
+    border-radius: .5em;
+    outline: none;
+    padding: 0 1em;
+}
+.ui-img-wrapper {
+    display: inline-block;
+    min-width: 100px;
+    min-height: 100px;
+    border: 2px solid #95a5a6;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    &::after, &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #95a5a6;
+    }
+    &::after {
+        z-index: 1;
+        width: 10px;
+        height: 60px;
+    }
+    &::before {
+        z-index: 1;
+        height: 10px;
+        width: 60px;
+    }
+    img {
+        width: 90%;
+        height: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .ui-img {
+        display: none;
+    }
+}
+.ui-input {
+    display: inline-block;
+    height: 2.5em;
+    text-indent: 1em;
+    border-radius: 10px;
+    border: 2px solid #95a5a6;
+}
+.ui-textarea {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #95a5a6;
+    text-indent: 1em;
+}
+.ui-btn {
+    display: inline-block;
+    outline: none;
+    box-shadow: none;
+    background: #fff;
+    border: 1px solid #95a5a6;
+    height: 2.5em;
+    padding: 0 1em;
+    cursor: pointer;
+    border-radius: 10px;
+    &:hover {
+        filter: brightness(0.95);
+    }
+}
+.ui-table {
+    &.table-border {
+        &, & tr, & tr td {
+            border: 1px solid #95a5a6;
+            border-collapse: collapse;
+        }
+    }
+    td {
+        padding: 1em;
+    }
+}

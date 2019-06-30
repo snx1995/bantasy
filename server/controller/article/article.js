@@ -10,7 +10,7 @@ const Article = {
     "/get": {
         method: "GET",
         handler(req, res) {
-
+            res.send(Results.success());
         }
     },
     "/post": {
