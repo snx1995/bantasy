@@ -7,9 +7,9 @@ const bodyParser = require("body-parser");
 const TAG = "MAIN";
 const app = express();
 
-process.on("uncaughtException", err => {
-    logger.error(TAG, `uncaught error ${err}`);
-})
+// process.on("uncaughtException", err => {
+//     logger.error(TAG, `uncaught error ${err}`);
+// })
 
 const storage = multer.diskStorage({
     destination (req, file, cb) {
@@ -26,7 +26,7 @@ const upload = multer({storage});
 registerController("/auth", require("./server/controller/authority/authority"));
 registerController("/", require("./server/controller/console"));
 registerController("/article", require("./server/controller/article/article"));
-
+registerController("/test", require("./server/controller/test"));
 
 app.use(bodyParser.json()); // application/json
 app.use(bodyParser.urlencoded({extended: true})); // application/x-www-form-urlencoded

@@ -19,131 +19,124 @@
 </head>
 <body>
     <div class="nav">
-        <select name="type" class="uitasy ui-sel">
-            <option value="0" selected>type 0</option>
-            <option value="1">type 1</option>
-            <option value="2">type 2</option>
-        </select>
         <span>记忆中有明灭的光</span>
     </div>
     <form action="/serv/article/post" class="article0" method="POST" enctype="multipart/form-data">
         <table class="uitasy ui-table table-border">
             <tr>
+                <td colspan="3" style="text-align: center">Style 0</td>
+            </tr>
+            <tr>
                 <td rowspan="2">标题</td>
                 <td>
-                    主标题：<input type="text" name="title" class="uitasy ui-input">
+                    主标题：<input type="text" name="art0.title" class="uitasy ui-input">
                 </td>
                 <td rowspan="4">
                     <img src="/img/article0_example.png" alt="" style="width: 200px">
                 </td>
             </tr>
             <tr>
-                <td>副标题：<input type="text" name="subtitle" class="uitasy ui-input"></td>
+                <td>副标题：<input type="text" name="art0.subtitle" class="uitasy ui-input"></td>
             </tr>
             <tr>
                 <td>封面：</td>
-                <td><input type="file" name="img" class="uitasy ui-img"></td>
+                <td><input type="file" name="art0.img" class="uitasy ui-img"></td>
             </tr>
             <tr>
                 <td>正文：</td>
-                <td><textarea name="article" class="uitasy ui-textarea"></textarea></td>
+                <td><textarea name="art0.article" class="uitasy ui-textarea"></textarea></td>
+            </tr>
+        </table>
+
+        <table class="uitasy ui-table table-border">
+            <tr>
+                <td colspan="4" style="text-align: center">Style 1</td>
+            </tr>
+            <tr>
+                <td rowspan="2">标题</td>
+                <td colspan="2">
+                    主标题：<input type="text" name="art1.title" class="uitasy ui-input">
+                </td>
+                <td rowspan="4">
+                    <img src="/img/article1_example.png" alt="" style="width: 200px">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">副标题：<input type="text" name="art1.subtitle" class="uitasy ui-input"></td>
+            </tr>
+            <tr>
+                <td rowspan="2">封面：</td>
+                <td><input type="file" name="art1.img0" class="uitasy ui-img"></td>
+                <td><input type="file" name="art1.img1" class="uitasy ui-img"></td>
+            </tr>
+            <tr>
+                <td><input type="file" name="art1.img2" class="uitasy ui-img"></td>
+                <td><input type="file" name="art1.img3" class="uitasy ui-img"></td>
+            </tr>
+                <!-- <tr>
+                    <td colspan="4" style="text-align: right">
+                        <input type="reset" value="重置" class="uitasy ui-btn">
+                        <input type="submit" value="提交" class="uitasy ui-btn">
+                    </td>
+                </tr> -->
+        </table>
+
+        <table class="uitasy ui-table table-border">
+            <tr>
+                <td colspan="4" style="text-align: center">Style 2</td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <input type="file" name="art2.img0" class="uitasy ui-img">
+                </td>
+                <td>
+                    标题：<input type="text" name="art2.title0" class="uitasy ui-input">
+                </td>
+                <td rowspan="6">
+                    <img src="/img/article2_example.png" alt="" style="width: 200px">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    正文：
+                    <textarea name="art2.article0" class="uitasy ui-textarea"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    标题：<input type="text" name="art2.title1" class="uitasy ui-input">
+                </td>
+                <td rowspan="2">
+                    <input type="file" name="art2.img1" class="uitasy ui-img">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    正文：
+                    <textarea name="art2.article1" class="uitasy ui-textarea"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <input type="file" name="art2.img2" class="uitasy ui-img">
+                </td>
+                <td>
+                    标题：<input type="text" name="art2.title2" class="uitasy ui-input">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    正文：
+                    <textarea name="art2.article2" class="uitasy ui-textarea"></textarea>
+                </td>
             </tr>
             <tr>
                 <td colspan="3" style="text-align: right">
-                    <input type="text" name="type" value="0" style="display: none">
                     <input type="reset" value="重置" class="uitasy ui-btn">
                     <input type="submit" value="提交" class="uitasy ui-btn">
                 </td>
             </tr>
         </table>
-    </form>
-    <form action="/serv/article/post" class="article1" method="POST" enctype="multipart/form-data">
-        <table class="uitasy ui-table table-border">
-                <tr>
-                    <td rowspan="2">标题</td>
-                    <td colspan="2">
-                        主标题：<input type="text" name="title" class="uitasy ui-input">
-                    </td>
-                    <td rowspan="4">
-                        <img src="/img/article1_example.png" alt="" style="width: 200px">
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">副标题：<input type="text" name="subtitle" class="uitasy ui-input"></td>
-                </tr>
-                <tr>
-                    <td rowspan="2">封面：</td>
-                    <td><input type="file" name="img1" class="uitasy ui-img"></td>
-                    <td><input type="file" name="img2" class="uitasy ui-img"></td>
-                </tr>
-                <tr>
-                    <td><input type="file" name="img3" class="uitasy ui-img"></td>
-                    <td><input type="file" name="img4" class="uitasy ui-img"></td>
-                </tr>
-                <tr>
-                    <td colspan="4" style="text-align: right">
-                        <input type="text" name="type" value="1" style="display: none">
-                        <input type="reset" value="重置" class="uitasy ui-btn">
-                        <input type="submit" value="提交" class="uitasy ui-btn">
-                    </td>
-                </tr>
-            </table>
-    </form>
-    <form action="/serv/article/post" class="article2" method="POST" enctype="multipart/form-data">
-        <table class="uitasy ui-table table-border">
-                <tr>
-                    <td rowspan="2">
-                        <input type="file" name="img1" class="uitasy ui-img">
-                    </td>
-                    <td>
-                        主标题：<input type="text" name="title1" class="uitasy ui-input">
-                    </td>
-                    <td rowspan="6">
-                        <img src="/img/article2_example.png" alt="" style="width: 200px">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        正文：
-                        <textarea name="article1" class="uitasy ui-textarea"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        主标题：<input type="text" name="title2" class="uitasy ui-input">
-                    </td>
-                    <td rowspan="2">
-                        <input type="file" name="img2" class="uitasy ui-img">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        正文：
-                        <textarea name="article2" class="uitasy ui-textarea"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td rowspan="2">
-                        <input type="file" name="img3" class="uitasy ui-img">
-                    </td>
-                    <td>
-                        主标题：<input type="text" name="title3" class="uitasy ui-input">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        正文：
-                        <textarea name="article3" class="uitasy ui-textarea"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="text-align: right">
-                        <input type="text" name="type" value="2" style="display: none">
-                        <input type="reset" value="重置" class="uitasy ui-btn">
-                        <input type="submit" value="提交" class="uitasy ui-btn">
-                    </td>
-                </tr>
-            </table>
     </form>
 
     <script src="../lib/uitasy/uitasy.js"></script>

@@ -38,7 +38,6 @@ MongoDB.connect((err, db) => {
     const d = db.db(config.mongo.db);
     logger.debug(TAG, "mongo connected");
     config.mongo.collections.forEach(e => cols[e] = d.collection(e))
-
     DB.emitReady(d);
 });
 
@@ -134,16 +133,26 @@ const dao = {
             collection.find(query).toArray(callback);
         })
     },
-    // findOne(col, query, callback) {
-    //     DB.execOnReady(() => {
-    //         const collection = cols[col];
-    //         if (!collection) {
-    //             logger.error(TAG, "no collection named " + col);
-    //             return;
-    //         }
-    //         if (typeof callback == "function") callback(null, collection.findOne(query));
-    //     })
-    // }
+    findOne(col, query, option, callback) {
+        DB.execOnReady(() => {
+            const collection = cols[col];
+            if (!collection) {
+                logger.error(TAG, "no collection named " + col);
+                return;
+            }
+            collection.findOne(query, option, callback);
+        })
+    },
+    findOneAndUpdate(col, query, update, callback) {
+        DB.execOnReady(() => {
+            const collection = cols[col];
+            if (!collection) {
+                logger.error(TAG, "no collection named " + col);
+                return;
+            }
+            collection.findOneAndUpdate(query, update, callback);
+        })
+    }
 }
 
 
