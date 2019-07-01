@@ -102,9 +102,9 @@ class ArticlePhase extends Common {
                 data.files["art1.img3"]
             ),
             new Article2(
-                data.files["art1.img0"],
-                data.files["art1.img1"],
-                data.files["art1.img2"],
+                data.files["art2.img0"],
+                data.files["art2.img1"],
+                data.files["art2.img2"],
                 {
                     "title": data["art2.title0"],
                     "article": data["art2.article0"]
