@@ -4,7 +4,7 @@ const Test = {
     "/mongo": {
         method: "GET",
         handler(req, res) {
-            dao.findOneAndUpdate("article_phase", {index: true}, {"$inc": {phase: 1}}, (err, result) => {
+            dao.findOne("articles", {index: true}, (err, result) => {
                 if (err) {
                     console.log(err);
                     throw err;

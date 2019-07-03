@@ -2,7 +2,6 @@ const logger = require("../../../logger");
 const dao = require("../../system/dao");
 const Common = require("../../entity/common");
 const Results = require("../../system/result");
-const lang = require("../../system/language");
 
 const TAG = "article";
 const ARTICLE = "articles";
@@ -12,33 +11,54 @@ const Article = {
     "/get": {
         method: "GET",
         handler(req, res) {
-            const phase = req.query.phase;
-            if (phase) {
-                dao.findOne(ARTICLE, {phase}, (err, result) => {
-                    if (err) {
+            const func = req.query.func;
+            const t = req.query.t;
+
+            switch (func) {
+                case "phase":
+                    const phase = Number(req.query.phase);
+                    dao.findOne(ARTICLE, {phase}).then(result => {
+                        res.send(Results.success(result));
+                    }).catch(err => {
                         logger.error(TAG, `error while query phase ${phase} => ${err}`);
                         res.send(Results.error());
+                    })
+                break;
+                case "t":
+                    const {start, length} = req.query;
+                    if (start === undefined || length === undefined) {
+                        res.send(Results.lackParam("start || length"));
                         return;
                     }
-                    res.send(Results.success(result));
-                })
-            } else {
-                dao.findOne(ARTICLE, {index: true}, (err, result) => {
-                    if (err) {
+                    dao.find(ARTICLE, {phase: {"$gte": 0}})
+                    .skip(Number(start)).limit(Number(length))
+                    .project({
+                        _id: 0, 
+                        phase: 1, 
+                        phaseTitle: 1, 
+                        cover: 1,
+                        date: 1
+                    })
+                    .toArray().then(result => res.send(Results.success(result)))
+                    .catch(err => {
+                        logger.error(TAG, `error while query t => ${err}`);
+                        res.send(Results.error());
+                    })
+                break;
+                default:
+                    dao.findOne(ARTICLE, {index: true}).then(result => {
+                        const phase = result.next - 1;
+                        dao.findOne(ARTICLE, {phase})
+                            .then(result => res.send(Results.success(result)))
+                            .catch(err => {
+                                logger.error(TAG, `error while query phase ${phase} => ${err}`);
+                                res.send(Results.error());
+                            });
+                    }).catch(err => {
                         logger.error(TAG, `error while query phase index => ${err}`);
                         res.send(Results.error());
-                        return;
-                    }
-                    const phase = result.phase - 1;
-                    dao.findOne(ARTICLE, {phase}, (err, result) => {
-                        if (err) {
-                            logger.error(TAG, `error while query phase ${phase} => ${err}`);
-                            res.send(Results.error());
-                            return;
-                        }
-                        res.send(Results.success(result));
                     })
-                })
+                break;
             }
         }
     },
@@ -53,21 +73,21 @@ const Article = {
                     data.files[e.fieldname] = RESOURCE_DIR + e.filename;
                 })
             }
-            dao.findOneAndUpdate(ARTICLE, {index: true}, {"$inc": {phase: 1}}, (err, result) => {
+            dao.findOneAndUpdate(ARTICLE, {index: true}, {"$inc": {next: 1}}, (err, result) => {
                 if (err) {
-                    logger.error(TAG, `error while inc phase -> ${err}`);
+                    logger.error(TAG, `error while inc next -> ${err}`);
                     res.send(Results.error());
                     return;
                 }
                 const pre = result.value;
                 if (!pre) {
-                    logger.error(TAG, `phase index not found`);
+                    logger.error(TAG, `next index not found`);
                     res.send(Results.error());
                     return;
                 }
-                data.phase = pre.phase;
+                data.phase = pre.next;
                 const ap = new ArticlePhase(data);
-                dao.insert(ARTICLE, ap, err => {
+                dao.insertOne(ARTICLE, ap, err => {
                     if (err) {
                         logger.error(TAG, `error while insert article -> ${err}`);
                         res.send(Results.error());
@@ -121,6 +141,7 @@ class ArticlePhase extends Common {
         ];
         this.phase = data.phase;
         this.phaseTitle = data.phaseTitle;
+        this.cover = data.files[data.cover];
         const now = new Date();
         this.date = `${now.getFullYear()}-${f(now.getMonth() + 1)}-${f(now.getDate())} ${f(now.getHours())}:${f(now.getMinutes())}:${f(now.getSeconds())}`;
 

@@ -4,12 +4,13 @@
 }
 .ui-sel {
   background: transparent;
-  display: block;
-  height: 2em;
+  display: inline-block;
+  height: 2.5em;
   box-sizing: border-box;
   border-radius: .5em;
   outline: none;
   padding: 0 1em;
+  border: 2px solid #95a5a6;
 }
 .ui-img-wrapper {
   display: inline-block;

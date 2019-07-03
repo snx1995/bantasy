@@ -1,26 +1,26 @@
 const Result = {
     success(data) {
         return {
-            code: 200,
+            code: 0,
             data: data ? data : "success"
         }
     },
     lackParam(param) {
         return {
-            code: 400,
+            code: 1,
             data: `lack necessary param ${param}`
         }
     },
     forbidden(msg) {
         return {
-            code: 403,
+            code: 2,
             data: msg
         }
     },
     error(msg) {
         return {
-            code: 500,
-            data : `error ${msg}`
+            code: -1,
+            data : "error" + (msg ? ` ${msg}` : "")
         }
     }
 }

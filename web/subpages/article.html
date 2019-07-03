@@ -20,6 +20,7 @@
             height: 100%;
             box-sizing: border-box;
             display: flex;
+            justify-content: flex-end;
         }
         .op-wrapper > * {
             flex-shrink: 0;
@@ -60,7 +61,7 @@
     <form action="/serv/article/post" class="article0" method="POST" enctype="multipart/form-data">
         <table class="uitasy ui-table table-border">
             <tr>
-                <td colspan="3" style="text-align: center">Style 0</td>
+                <td colspan="3" style="text-align: center">Part 0</td>
             </tr>
             <tr>
                 <td rowspan="2">标题</td>
@@ -86,7 +87,7 @@
 
         <table class="uitasy ui-table table-border">
             <tr>
-                <td colspan="4" style="text-align: center">Style 1</td>
+                <td colspan="4" style="text-align: center">Part 1</td>
             </tr>
             <tr>
                 <td rowspan="2">标题</td>
@@ -113,7 +114,7 @@
 
         <table class="uitasy ui-table table-border">
             <tr>
-                <td colspan="4" style="text-align: center">Style 2</td>
+                <td colspan="3" style="text-align: center">Part 2</td>
             </tr>
             <tr>
                 <td rowspan="2">
@@ -160,24 +161,32 @@
                     <textarea name="art2.article2" class="uitasy ui-textarea"></textarea>
                 </td>
             </tr>
-            <!-- <tr>
-                <td>整体背景：</td>
-                <td>
-                    使用默认背景：
-                    <input type="checkbox" class="uitasy ui-checkbox" checked name="useDefaultBG" value="true" data-class="bg-checkbox">
-                </td>
-                <td id="bgUpload" style="display: none">
-                    <input type="file" name="bg" class="uitasy ui-img">
-                </td>
-            </tr> -->
+            <tr>
+                <td colspan="3" style="text-align: center">操作</td>
+            </tr>
             <tr>
                 <td colspan="3">
                     <div class="op-wrapper">
                         本期标题：
                         <input type="text" class="uitasy ui-input" name="phaseTitle">
-                        <input type="reset" value="重置"  class="uitasy ui-btn">
-                        <input type="submit" value="确认"  class="uitasy ui-btn">
+                        cover：
+                        <select name="cover"  class="uitasy ui-sel">
+                            <option value="art0.img" selected>part 0 img</option>
+                            <option value="art1.img0">part 1 img1</option>
+                            <option value="art1.img1">part 1 img2</option>
+                            <option value="art1.img2">part 1 img3</option>
+                            <option value="art1.img3">part 1 img4</option>
+                            <option value="art2.img0">part 2 img1</option>
+                            <option value="art2.img1">part 2 img2</option>
+                            <option value="art2.img2">part 2 img3</option>
+                        </select>
                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: right;">
+                    <input type="reset" value="重置"  class="uitasy ui-btn">
+                    <input type="submit" value="确认"  class="uitasy ui-btn">
                 </td>
             </tr>
         </table>
