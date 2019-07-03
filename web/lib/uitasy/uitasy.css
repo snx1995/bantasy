@@ -63,6 +63,7 @@
   border-radius: 10px;
   border: 2px solid #95a5a6;
   text-indent: 1em;
+  min-height: 5em;
 }
 .ui-btn {
   display: inline-block;
@@ -86,4 +87,30 @@
 }
 .ui-table td {
   padding: 1em;
+}
+.ui-checkbox-wrapper {
+  cursor: pointer;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  border: 1px solid #95a5a6;
+  border-radius: 5px;
+  position: relative;
+}
+.ui-checkbox-wrapper .ui-checkbox {
+  display: none;
+}
+.ui-checkbox-wrapper .ui-checkbox:checked + .ui-checkbox-substitute {
+  display: block;
+}
+.ui-checkbox-wrapper .ui-checkbox-substitute {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  background: #95a5a6;
+  border-radius: inherit;
 }

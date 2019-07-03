@@ -5,6 +5,9 @@
             case e.matches(".ui-img"):
                 uiImg(e);
                 break;
+            case e.matches(".ui-checkbox"):
+                uiCheckbox(e);
+                break;
             default:
                 break;
         }
@@ -19,7 +22,11 @@
         uiImgWrapper.appendChild(el);
 
         img.src = "/img/img_example.png";
+
         uiImgWrapper.classList.add("ui-img-wrapper");
+        var cls = el.getAttribute("data-class");
+        if (cls) uiImgWrapper.classList.add.apply(uiImgWrapper.classList, cls.split(" "));
+
         uiImgWrapper.addEventListener("click", function () {
             el.click();
         })
@@ -31,5 +38,19 @@
                 img.src = event.target.result;
             }
         })
+    }
+    
+    function uiCheckbox(el) {
+        var uiCheckboxWrapper = document.createElement("label");
+        var uiCheckboxSubstitute = document.createElement("span");
+
+        uiCheckboxWrapper.classList.add("ui-checkbox-wrapper");
+        var cls = el.getAttribute("data-class");
+        if (cls) uiCheckboxWrapper.classList.add.apply(uiCheckboxWrapper.classList, cls.split(" "));
+        uiCheckboxSubstitute.classList.add("ui-checkbox-substitute");
+
+        el.before(uiCheckboxWrapper);
+        uiCheckboxWrapper.appendChild(el);
+        uiCheckboxWrapper.appendChild(uiCheckboxSubstitute);
     }
 })()

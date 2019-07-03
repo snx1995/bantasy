@@ -120,6 +120,7 @@ class ArticlePhase extends Common {
             )
         ];
         this.phase = data.phase;
+        this.phaseTitle = data.phaseTitle;
         const now = new Date();
         this.date = `${now.getFullYear()}-${f(now.getMonth() + 1)}-${f(now.getDate())} ${f(now.getHours())}:${f(now.getMinutes())}:${f(now.getSeconds())}`;
 

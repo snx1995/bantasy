@@ -29,7 +29,7 @@ let DB = {
     }
 };
 
-MongoDB.connect((err, db) => {
+await MongoDB.connect((err, db) => {
     logger.debug(TAG, "connecting to mongo");
     if (err) {
         logger.error(TAG, err.errmsg);
@@ -143,17 +143,32 @@ const dao = {
             collection.findOne(query, option, callback);
         })
     },
-    findOneAndUpdate(col, query, update, callback) {
+    findOneAndUpdate(col, ...args) {
         DB.execOnReady(() => {
             const collection = cols[col];
             if (!collection) {
                 logger.error(TAG, "no collection named " + col);
                 return;
             }
-            collection.findOneAndUpdate(query, update, callback);
+            collection.findOneAndUpdate(...args);
         })
     }
 }
+
+const proxy = new Proxy({}, {
+    get(target, property, receiver) {
+        return function (col, ...args) {
+            DB.execOnReady(() => {
+                const collection = cols[col];
+                if (!collection) {
+                    logger.error(TAG, "no collection named " + col);
+                    return;
+                }
+                collection[property](...args);
+            })
+        }
+    }
+})
 
 
 module.exports = dao;

@@ -15,6 +15,42 @@
         table {
             margin: 20px auto;
         }
+        .op-wrapper {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+        }
+        .op-wrapper > * {
+            flex-shrink: 0;
+            flex-grow: 0;
+            margin-right: 5px;
+        }
+        .op-wrapper .ui-input {
+            flex-grow: 1;
+        }
+        .ui-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+        }
+        .ui-modal h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+        }
+        .bg-img {
+            display: none;
+            margin-left: 5em;
+        }
     </style>
 </head>
 <body>
@@ -73,12 +109,6 @@
                 <td><input type="file" name="art1.img2" class="uitasy ui-img"></td>
                 <td><input type="file" name="art1.img3" class="uitasy ui-img"></td>
             </tr>
-                <!-- <tr>
-                    <td colspan="4" style="text-align: right">
-                        <input type="reset" value="重置" class="uitasy ui-btn">
-                        <input type="submit" value="提交" class="uitasy ui-btn">
-                    </td>
-                </tr> -->
         </table>
 
         <table class="uitasy ui-table table-border">
@@ -130,42 +160,46 @@
                     <textarea name="art2.article2" class="uitasy ui-textarea"></textarea>
                 </td>
             </tr>
+            <!-- <tr>
+                <td>整体背景：</td>
+                <td>
+                    使用默认背景：
+                    <input type="checkbox" class="uitasy ui-checkbox" checked name="useDefaultBG" value="true" data-class="bg-checkbox">
+                </td>
+                <td id="bgUpload" style="display: none">
+                    <input type="file" name="bg" class="uitasy ui-img">
+                </td>
+            </tr> -->
             <tr>
-                <td colspan="3" style="text-align: right">
-                    <input type="reset" value="重置" class="uitasy ui-btn">
-                    <input type="submit" value="提交" class="uitasy ui-btn">
+                <td colspan="3">
+                    <div class="op-wrapper">
+                        本期标题：
+                        <input type="text" class="uitasy ui-input" name="phaseTitle">
+                        <input type="reset" value="重置"  class="uitasy ui-btn">
+                        <input type="submit" value="确认"  class="uitasy ui-btn">
+                    </div>
                 </td>
             </tr>
         </table>
     </form>
+    <div class="ui-modal" id="uploading">
+        <h1>提交中...</h1>
+    </div>
 
     <script src="../lib/uitasy/uitasy.js"></script>
     <script>
         (function () {
-            var article0 = document.querySelector(".article0")
-            var article1 = document.querySelector(".article1")
-            var article2 = document.querySelector(".article2")
-            document.querySelector("select").addEventListener("change", function () {
-                switch (this.value) {
-                    case '0':
-                        article0.style.display = "block";
-                        article1.style.display = "none";
-                        article2.style.display = "none";
-                        break;
-                    case '1':
-                        article1.style.display = "block";
-                        article0.style.display = "none";
-                        article2.style.display = "none";
-                        break;
-                    case '2':
-                        article2.style.display = "block";
-                        article1.style.display = "none";
-                        article0.style.display = "none";
-                        break;
-                    default:
-                        console.log(this.value);
-                }
-            })
+            const uploading = document.querySelector("#uploading");
+            // const bgUpload = document.querySelector("#bgUpload");
+            const submit = document.querySelector("input[type='submit']")
+            submit.addEventListener("click", event => {
+                uploading.style.display = "block";
+            });
+            // const useDefaultBG = document.querySelector("[name='useDefaultBG']");
+            // useDefaultBG.addEventListener("change", event => {
+            //     if (useDefaultBG.matches(":checked")) bgUpload.style.display = "none";
+            //     else bgUpload.style.display = "table-cell";
+            // });
         })()
     </script>
 </body>
