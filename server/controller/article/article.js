@@ -31,7 +31,7 @@ const Article = {
                         return;
                     }
                     dao.find(ARTICLE, {phase: {"$gte": 0}})
-                    .skip(Number(start)).limit(Number(length))
+                    .sort({phase: -1}).skip(Number(start)).limit(Number(length))
                     .project({
                         _id: 0, 
                         phase: 1, 
