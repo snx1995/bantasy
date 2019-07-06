@@ -1,59 +1,75 @@
 (function () {
-    // switch (location.hostname) {
-    //     case "www.bantasy.top":
-    //     case "bantasy.top":
-    //     case "localhost":
-    //         break;
-    //     default:
-    //         window.location = "https://www.bantasy.top";
-    // }
 
     const main = document.querySelector(".main");
     const createElement = document.createElement.bind(document);
     const articleContainer = document.querySelector("#article");
     const pastContainer = document.querySelector("#past");
     const viewPast = document.querySelector("#viewPast");
+    const pastList = document.createElement("ul");
+    const loadMore = document.createElement("div");
+
+    const carousel = document.querySelector("#carousel");
+
+    const pageIndex = {
+        start: 0,
+        length: 5,
+        next: true,
+        loading: false
+    }
+
     const cons = document.querySelector(".console");
 
+    pastList.classList.add("past-list");
+    loadMore.classList.add("load-more");
+    loadMore.innerHTML = "<div>加载更多</div><div>...没有啦...</div>";
+
+    pastContainer.appendChild(pastList);
+    pastContainer.appendChild(loadMore);
+
+    loadMore.addEventListener("click", event => {
+        if (!pageIndex.loading) loadPageData();
+    })
+
     viewPast.addEventListener("click", function (event){
-        axios.get("/serv/article/get?func=t&start=0&length=10").then(function (response) {
-            const res = response.data;
-            if (res.code == 0) {
-                articleContainer.style.display = "none";
-                pastContainer.innerHTML = "";
-                pastContainer.appendChild(viewPastPage(res.data));
-                pastContainer.style.display = "block";
-            }
-        })
+        articleContainer.style.display = "none";
+        pastContainer.style.display = "block";
+        // if (pageIndex.start === 0) loadPageData();
     })
 
-    axios.get("/serv/article/get").then(res => {
-        const data = res.data.data;
-        if (data.articles instanceof Array) {
-            data.articles.forEach(e => {
-                switch (e.type) {
-                    case 0:
-                        articleContainer.appendChild(newStyle0(e));
-                        break;
-                    case 1:
-                        articleContainer.appendChild(newStyle1(e));
-                        break;
-                    case 2:
-                        articleContainer.appendChild(newStyle2(e));
-                        break;
-                }
+    loadPageData(data => {
+        const slideImgs = carousel.querySelectorAll(".slides .slide img");
+        const labels = carousel.querySelectorAll(".indicators label");
+        for (let i = 1;i< data.length;i ++) {
+            const img = slideImgs[i - 1];
+            const ph = data[i].phase;
+            img.src = data[i].cover;
+            img.addEventListener("click", event => {
+                loadArticle(ph);
+            });
+            labels[i - 1].innerHTML = data[i].phaseTitle;
+        }
+        startCarousel();
+
+        function startCarousel() {
+            let timer = setInterval(() => {
+                const next = carousel.querySelector("input[type='radio']:checked + input[type='radio']");
+                (next ? next : labels[0]).click();
+            }, 5000);
+            const slides = carousel.querySelector(".slides");
+            slides.addEventListener("mouseenter", event => {
+                clearInterval(timer);
+            })
+
+            slides.addEventListener("mouseleave", event => {
+                timer = setInterval(() => {
+                    const next = carousel.querySelector("input[type='radio']:checked + input[type='radio']");
+                    (next ? next : labels[0]).click();
+                }, 5000);
             })
         }
     })
 
-    cons.addEventListener("keydown", event => {
-        if (event.keyCode == 13) {
-            const ins = cons.value;
-            axios.get(`/do/console?i=${ins}`).then(res => {
-                
-            })
-        }
-    })
+    loadArticle();
 
     function newStyle0(art0) {
         const section = createElement("section");
@@ -87,9 +103,6 @@
     }
 
     function viewPastPage(data) {
-        const pastList = document.createElement("ul");
-        pastList.classList.add("past-list");
-
         for (var i = 0;i < data.length;i ++) {
             const li = document.createElement("li");
             const cover = document.createElement("div");
@@ -119,30 +132,57 @@
 
             const ph = data[i].phase;
             li.addEventListener("click", function () {
-                axios.get(`/serv/article/get?func=phase&phase=${ph}`).then(function (response) {
-                    const res = response.data;
-                    if (res.code == 0) {
-                        articleContainer.innerHTML = "";
-                        articleContainer.style.display = "block";
-                        res.data.articles.forEach(e => {
-                            switch (e.type) {
-                                case 0:
-                                    articleContainer.appendChild(newStyle0(e));
-                                    break;
-                                case 1:
-                                    articleContainer.appendChild(newStyle1(e));
-                                    break;
-                                case 2:
-                                    articleContainer.appendChild(newStyle2(e));
-                                    break;
-                            }
-                        })
-                        pastContainer.style.display = "none";
-                    }
-                })
-                
+                loadArticle(ph);
             })
         }
         return pastList;
+    }
+
+    function loadPageData(cb) {
+        pageIndex.loading = true;
+        if (pageIndex.next) axios.get(`/serv/article/get?func=t&start=${pageIndex.start}&length=${pageIndex.length}`).then(response => {
+            const res = response.data;
+            if (res.code === 0) {
+                const data = res.data;
+                if (data.length < pageIndex.length) {
+                    pageIndex.next = false;
+                    loadMore.classList.add("disabled");
+                }
+                pageIndex.start += pageIndex.length;
+                viewPastPage(data);
+                pageIndex.loading = false;
+                if (typeof cb === "function") cb(data);
+            }
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+
+    function loadArticle(phase) {
+        const query = phase === undefined ? "" : `?func=phase&phase=${phase}`;
+        axios.get(`/serv/article/get${query}`).then(function (response) {
+            const res = response.data;
+            if (res.code == 0) {
+                articleContainer.innerHTML = "";
+                articleContainer.style.display = "block";
+                res.data.articles.forEach(e => {
+                    switch (e.type) {
+                        case 0:
+                            articleContainer.appendChild(newStyle0(e));
+                            break;
+                        case 1:
+                            articleContainer.appendChild(newStyle1(e));
+                            break;
+                        case 2:
+                            articleContainer.appendChild(newStyle2(e));
+                            break;
+                    }
+                })
+                pastContainer.style.display = "none";
+                window.scrollTo(0, 0);
+            }
+        }).catch(err => {
+            console.log(err);
+        })
     }
 })();
