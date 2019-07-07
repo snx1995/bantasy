@@ -10,7 +10,8 @@ body, html {
     background-attachment: fixed;
     background-size: 100% 100%;
     min-width: 800px;
-
+    scroll-behavior: smooth;
+    overflow: hidden;
 }
 .main {
     position: relative;
@@ -26,6 +27,23 @@ body, html {
     width: 100%;
     height: 500px;
     background: radial-gradient(500px at 50% 0, #f39c1255, transparent);
+}
+.scroll-top-btn {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #34495e;
+    color: #fff;
+    opacity: 0.3;
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+}
+.scroll-top-btn:hover {
+    opacity: 1;
 }
 footer {
     margin-top: 100px;
@@ -121,6 +139,17 @@ footer > div:not(.container) {
 .inner > section:not(:last-child) {
     margin-bottom: 50px;
 }
+#article::after {
+    content: "-----------  the end  -----------";
+    display: block;
+    width: 100%;
+    height: 50px;
+    background: #ecf0f1;
+    color: #7f8c8d;
+    text-align: center;
+    line-height: 50px;
+    font-style: italic;
+}
 .main > h1 {
     margin: 50px 0 100px 0;
     font-size: 72px;
@@ -139,36 +168,36 @@ footer > div:not(.container) {
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
 }
-section.style1 {
+section.style0 {
     display: flex;
     flex-direction: column;
 }
-section.style1 .img-container{
+section.style0 .img-container{
     width: 100%;
     overflow: hidden;
     background: #fff;
 }
-section.style1 .img-container img {
+section.style0 .img-container img {
     width: 100%;
     height: auto;
 }
-section.style1 p {
+section.style0 p {
     background: #fff;
 }
-section.style1 > article {
+section.style0 > article {
     background: #fff;
 }
-section.style1 > article .title-container {
+section.style0 > article .title-container {
     padding: 30px 0;
 }
-section.style1 > article h1 {
+section.style0 > article h1 {
     text-align: center;
     padding: 20px;
     position: relative;
     font-size: 1.8em;
     letter-spacing: 10px;
 }
-section.style1 > article h1::before {
+section.style0 > article h1::before {
     content: "";
     position: absolute;
     width: 100px;
@@ -181,14 +210,14 @@ section.style1 > article h1::before {
     font-size: .8em;
     border-bottom: 1px solid #7f8c8d;
 }
-section.style1 > article h2 {
+section.style0 > article h2 {
     text-align: center;
     padding: 20px;
     color: #bdc3c7;
     font-size: .8em;
     letter-spacing: 5px;
 }
-section.style1 > article p {
+section.style0 > article p {
     background: #ecf0f1;
     padding: 40px;
     line-height: 2em;
@@ -196,17 +225,15 @@ section.style1 > article p {
     // text-indent: 1em;
     text-align: center;
 }
-/* section.style2 {
-} */
-section.style2 .container {
+section.style1 .container {
     padding: 100px 50px;
 }
-section.style2 .container .title-container {
+section.style1 .container .title-container {
     background: #353b48;
     /* background: radial-gradient(400px at 50% 0, #dfe6e911, #353b48); */
     padding: 30px 0;
 }
-section.style2 .container .title-container h1 {
+section.style1 .container .title-container h1 {
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -214,7 +241,7 @@ section.style2 .container .title-container h1 {
     font-size: 1.8em;
     letter-spacing: 10px;
 }
-section.style2 .container .title-container h1::before {
+section.style1 .container .title-container h1::before {
     content: "";
     position: absolute;
     display: block;
@@ -227,74 +254,139 @@ section.style2 .container .title-container h1::before {
     font-size: .8em;
     border-bottom: 1px solid #7f8c8d;
 }
-section.style2 .container .title-container h2 {
+section.style1 .container .title-container h2 {
     text-align: center;
     padding: 20px;
     color: #7f8c8d;
     font-size: .8em;
     letter-spacing: 5px;
 }
-section.style2 .container .img-container {
+section.style1 .container .img-container {
     display: flex;
     flex-wrap: wrap;
 }
-section.style2 .container .img-container > div {
+section.style1 .container .img-container > div {
     width: 50%;
 
 }
-section.style2 .container .img-container img {
+section.style1 .container .img-container img {
     width: 100%;
     height: 100%;
 }
-section.style3 .container {
+section.style2 .container {
     display: flex;
     flex-wrap: wrap;
 }
-section.style3 .container > div {
+section.style2 .container > div {
     width: 50%;
     position: relative;
     background: #ecf0f1;
 }
-section.style3 .container > div:nth-child(3) {
+section.style2 .container > div:nth-child(3) {
     background: #34495e;
 }
-section.style3 .container > div img {
+section.style2 .container > div img {
     width: 100%;
     height: 100%;
 }
-section.style3 .container > div article {
+section.style2 .container > div article {
     position: absolute;
     width: 70%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-section.style3 .container > div:nth-child(3) article{
+section.style2 .container > div:nth-child(3) article{
     text-align: end;
     color: #ecf0f1;
 }
-section.style3 .container > div article h1 {
+section.style2 .container > div article h1 {
     padding: 1em 0;
     font-size: 1.5em;
 }
-section.style3 .container > div article p {
+section.style2 .container > div article p {
     color: #7f8c8d;
 }
-section.style4 .container {
-    padding: 100px 0 0 0;
-    height: 500px;
+.style3 {
+    z-index: 0;
+    overflow: hidden;
     display: flex;
-    flex-wrap: nowrap;
-}
-section.style4 .container > div article {
-    padding: 100px 50px;
-    background: #ecf0f1;
-    height: 100%;
-    box-sizing: border-box;
-}
-section.style4 .container > div img {
     width: 100%;
-    height: 100%;
+    height: 700px;
+    background-size: cover;
+    * {
+        box-sizing: border-box;
+    }
+    position: relative;
+    .col {
+        height: 100%;
+        width: 25%;
+        display: flex;
+        align-items: center;
+        &:not(:last-child) {
+            border-right: 2px solid #000;
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 33.333%;
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+            position: relative;
+            .text {
+                cursor: default;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                color: #ffffffcc;
+                font-size: 7em;
+            }
+            .content {
+                padding: 1em;
+                width: 100%;
+                height: 150%;
+                background-color: #fff;
+                transform: translateY(220%);
+                transition: transform .6s, opacity .6s;
+                opacity: 0;
+                h1, p {
+                    text-align: center;
+                    padding: 1em 0;
+                }
+            }
+        }
+        &:hover {
+            .content {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            img {
+                transform: translateY(-10%);
+                opacity: 1;
+            }
+        }
+        img {
+            display: block;
+            width: 100%;
+            height: 120%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transform: translateY(0);
+            opacity: 0;
+            transition: transform .6s, opacity .6s;
+        }
+    }
 }
 .past-list {
     @h: 150px;
@@ -486,5 +578,60 @@ section.style4 .container > div img {
                 border-right: none;
             }
         }
+    }
+}
+.loading {
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 0 0, #1abc9c, #2980b9);
+    transition: transform 1s;
+    &.finished {
+        transform: translateY(-110%);
+    }
+    .ani {
+        color: #fff;
+        font-size: 5em;
+        font-weight: bold;
+        font-style: italic;
+        &:not(:last-child) {
+            margin-right: 50px;
+        }
+        @aniTime: 1.5s;
+        @aniDelay: .1s;
+        &.a1 {
+            animation: loading @aniTime infinite;
+        }
+        &.a2 {
+            animation: loading @aniTime @aniDelay infinite;
+            
+        }
+        &.a3 {
+            animation: loading @aniTime @aniDelay * 2 infinite;
+        }
+        &.a4 {
+            animation: loading @aniTime @aniDelay * 3 infinite;
+        }
+        &.a5 {
+            height: 5em;
+            line-height: 7em;
+            vertical-align: bottom;
+            animation: loading @aniTime @aniDelay * 4 infinite;
+            font-size: 2em;
+        }
+    }
+}
+@keyframes loading {
+    0%, 20%, 80%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
     }
 }

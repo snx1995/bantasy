@@ -188,4 +188,15 @@ class Article2 extends Common {
     }
 }
 
+class Article3 extends Common {
+    constructor(word, arts, imgs, bg) {
+        super();
+        this.type = 3;
+        this.word = word;
+        this.articles = arts;
+        this.imgs = imgs;
+        this.bg = bg;
+    }
+}
+
 module.exports = Article;
