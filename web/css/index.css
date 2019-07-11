@@ -12,7 +12,6 @@ html {
   background-size: 100% 100%;
   min-width: 800px;
   scroll-behavior: smooth;
-  overflow: hidden;
 }
 .main {
   position: relative;
@@ -21,7 +20,6 @@ html {
   width: 100%;
 }
 .main .overlay {
-  /* display: none; */
   position: absolute;
   top: 0;
   left: 0;
@@ -155,9 +153,9 @@ footer > div:not(.container) {
   font-size: 72px;
   font-family: "Microsoft YaHei";
   font-weight: bold;
-  color: #fff;
   text-align: center;
   position: relative;
+  color: #fff;
 }
 .main > h1::before {
   content: "by bantasy";
@@ -572,8 +570,26 @@ section.style2 .container > div article p {
   background: radial-gradient(circle at 0 0, #1abc9c, #2980b9);
   transition: transform 1s;
 }
+.loading .in-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading .error {
+  display: none;
+  color: #fff;
+  font-size: 5em;
+  font-weight: bold;
+  font-style: italic;
+}
 .loading.finished {
   transform: translateY(-110%);
+}
+.loading.failed .error {
+  display: block;
+}
+.loading.failed .in-progress {
+  display: none;
 }
 .loading .ani {
   color: #fff;

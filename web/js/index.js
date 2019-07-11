@@ -37,6 +37,7 @@
     })
 
     loading.addEventListener("transitionend", event => {
+        document.body.style.overflow = "auto";
         loading.style.display = "none";
     })
 
@@ -54,7 +55,6 @@
         }
         startCarousel();
 
-        document.body.style.overflow = "auto";
         loading.classList.add("finished");
 
         function startCarousel() {
@@ -197,6 +197,10 @@
     function loadPageData(cb) {
         pageIndex.loading = true;
         if (pageIndex.next) axios.get(`/serv/article/get?func=t&start=${pageIndex.start}&length=${pageIndex.length}`).then(response => {
+            if (response.status != 200) {
+                loading.classList.add("failed");
+                return;
+            }
             const res = response.data;
             if (res.code === 0) {
                 const data = res.data;
@@ -210,7 +214,7 @@
                 if (typeof cb === "function") cb(data);
             }
         }).catch(err => {
-            console.log(err);
+            loading.classList.add("failed");
         })
     }
 
