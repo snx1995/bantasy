@@ -1,4 +1,4 @@
-const logger = require("../../../logger");
+const logger = require("../../logger");
 const dao = require("../../system/dao");
 const Common = require("../../entity/common");
 const Results = require("../../system/result");

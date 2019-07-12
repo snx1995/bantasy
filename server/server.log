@@ -1,0 +1,105 @@
+[DEBUG][2019-07-03 14:59:39] <mongo> connecting to mongo
+[DEBUG][2019-07-03 14:59:39] <mongo> mongo connected
+[ERROR][2019-07-03 14:59:58] <MAIN> error while handle /article/get?t=true -> TypeError: dao.find(...).then is not a function
+[DEBUG][2019-07-03 15:00:53] <mongo> connecting to mongo
+[DEBUG][2019-07-03 15:00:53] <mongo> mongo connected
+[DEBUG][2019-07-03 15:02:29] <mongo> connecting to mongo
+[DEBUG][2019-07-03 15:02:29] <mongo> mongo connected
+[DEBUG][2019-07-03 15:03:52] <mongo> connecting to mongo
+[DEBUG][2019-07-03 15:03:52] <mongo> mongo connected
+[DEBUG][2019-07-03 15:06:00] <mongo> connecting to mongo
+[DEBUG][2019-07-03 15:06:00] <mongo> mongo connected
+[DEBUG][2019-07-03 15:06:45] <mongo> connecting to mongo
+[DEBUG][2019-07-03 15:06:45] <mongo> mongo connected
+[DEBUG][2019-07-03 15:07:25] <mongo> connecting to mongo
+[DEBUG][2019-07-03 15:07:25] <mongo> mongo connected
+[DEBUG][2019-07-03 15:11:19] <mongo> connecting to mongo
+[DEBUG][2019-07-03 15:11:19] <mongo> mongo connected
+[DEBUG][2019-07-03 15:17:59] <mongo> connecting to mongo
+[DEBUG][2019-07-03 15:17:59] <mongo> mongo connected
+[ERROR][2019-07-03 15:18:04] <article> error while query t => [object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+[DEBUG][2019-07-03 15:19:01] <mongo> connecting to mongo
+[DEBUG][2019-07-03 15:19:01] <mongo> mongo connected
+[DEBUG][2019-07-03 15:21:37] <mongo> connecting to mongo
+[DEBUG][2019-07-03 15:21:37] <mongo> mongo connected
+[DEBUG][2019-07-03 16:21:04] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:21:04] <mongo> mongo connected
+[ERROR][2019-07-03 16:21:21] <MAIN> error while handle /article/get?t=true&start=0&length=2 -> TypeError: Cannot read property 'skip' of undefined
+[DEBUG][2019-07-03 16:23:07] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:23:07] <mongo> mongo connected
+[ERROR][2019-07-03 16:23:09] <MAIN> error while handle /article/get?t=true&start=0&length=2 -> MongoError: skip requires an integer
+[DEBUG][2019-07-03 16:23:58] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:23:58] <mongo> mongo connected
+[ERROR][2019-07-03 16:24:00] <article> error while query t => MongoError: unknown operator: $ge
+[DEBUG][2019-07-03 16:27:52] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:27:52] <mongo> mongo connected
+[DEBUG][2019-07-03 16:29:28] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:29:28] <mongo> mongo connected
+[ERROR][2019-07-03 16:30:02] <mongo> no collection named articles
+[ERROR][2019-07-03 16:30:02] <MAIN> error while handle /article/get?t=true&start=0&length=10 -> TypeError: Cannot read property 'skip' of undefined
+[DEBUG][2019-07-03 16:30:02] <mongo> mongo connected
+[DEBUG][2019-07-03 16:30:02] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:31:12] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:31:12] <mongo> mongo connected
+[ERROR][2019-07-03 16:31:16] <MAIN> error while handle /article/get?t=true&start=0&length=10 -> TypeError: Cannot read property 'skip' of undefined
+[DEBUG][2019-07-03 16:32:01] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:32:01] <mongo> mongo connected
+[ERROR][2019-07-03 16:32:03] <MAIN> error while handle /article/get?t=true&start=0&length=10 -> TypeError: Cannot read property 'skip' of undefined
+[ERROR][2019-07-03 16:32:06] <MAIN> error while handle /article/get?t=true&start=0&length=10 -> TypeError: Cannot read property 'skip' of undefined
+[ERROR][2019-07-03 16:32:09] <MAIN> error while handle /article/get?t=true&start=0&length=10 -> TypeError: Cannot read property 'skip' of undefined
+[DEBUG][2019-07-03 16:33:08] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:33:08] <mongo> mongo connected
+[DEBUG][2019-07-03 16:38:36] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:38:36] <mongo> mongo connected
+[DEBUG][2019-07-03 16:47:18] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:47:18] <mongo> mongo connected
+[DEBUG][2019-07-03 16:49:52] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:49:52] <mongo> mongo connected
+[DEBUG][2019-07-03 16:53:52] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:53:52] <mongo> mongo connected
+[DEBUG][2019-07-03 16:54:50] <mongo> connecting to mongo
+[DEBUG][2019-07-03 16:54:50] <mongo> mongo connected
+[DEBUG][2019-07-03 17:03:30] <mongo> connecting to mongo
+[DEBUG][2019-07-03 17:03:30] <mongo> mongo connected
+[DEBUG][2019-07-03 18:33:31] <mongo> connecting to mongo
+[DEBUG][2019-07-03 18:33:31] <mongo> mongo connected
+[DEBUG][2019-07-03 22:10:43] <mongo> connecting to mongo
+[DEBUG][2019-07-03 22:10:43] <mongo> mongo connected
+[DEBUG][2019-07-04 09:05:25] <mongo> connecting to mongo
+[DEBUG][2019-07-04 09:05:25] <mongo> mongo connected
+[DEBUG][2019-07-04 09:18:42] <mongo> connecting to mongo
+[DEBUG][2019-07-04 09:18:42] <mongo> mongo connected
+[DEBUG][2019-07-04 09:19:44] <mongo> connecting to mongo
+[DEBUG][2019-07-04 09:19:44] <mongo> mongo connected
+[DEBUG][2019-07-04 12:17:09] <mongo> connecting to mongo
+[DEBUG][2019-07-04 12:17:09] <mongo> mongo connected
+[DEBUG][2019-07-04 16:28:30] <mongo> connecting to mongo
+[DEBUG][2019-07-04 16:28:30] <mongo> mongo connected
+[DEBUG][2019-07-04 19:33:46] <mongo> mongo connected
+[DEBUG][2019-07-04 19:33:46] <mongo> connecting to mongo
+[DEBUG][2019-07-05 09:18:01] <mongo> connecting to mongo
+[DEBUG][2019-07-05 09:18:01] <mongo> mongo connected
+[DEBUG][2019-07-05 14:50:36] <mongo> connecting to mongo
+[DEBUG][2019-07-05 14:50:36] <mongo> mongo connected
+[DEBUG][2019-07-05 19:33:40] <mongo> connecting to mongo
+[DEBUG][2019-07-05 19:33:40] <mongo> mongo connected
+[DEBUG][2019-07-06 08:49:13] <mongo> connecting to mongo
+[DEBUG][2019-07-06 08:49:13] <mongo> mongo connected
+[DEBUG][2019-07-06 14:41:47] <mongo> connecting to mongo
+[DEBUG][2019-07-06 14:41:47] <mongo> mongo connected
+[DEBUG][2019-07-06 19:15:05] <mongo> connecting to mongo
+[DEBUG][2019-07-06 19:15:05] <mongo> mongo connected
+[DEBUG][2019-07-06 22:30:14] <mongo> connecting to mongo
+[DEBUG][2019-07-06 22:30:14] <mongo> mongo connected
+[DEBUG][2019-07-07 09:33:07] <mongo> connecting to mongo
+[DEBUG][2019-07-07 09:33:07] <mongo> mongo connected
+[DEBUG][2019-07-07 16:01:47] <mongo> connecting to mongo
+[DEBUG][2019-07-07 16:01:47] <mongo> mongo connected
+[DEBUG][2019-07-07 20:25:04] <mongo> connecting to mongo
+[DEBUG][2019-07-07 20:25:04] <mongo> mongo connected
+[DEBUG][2019-07-08 12:16:39] <mongo> connecting to mongo
+[DEBUG][2019-07-08 12:16:39] <mongo> mongo connected
+[DEBUG][2019-07-08 20:37:01] <mongo> connecting to mongo
+[DEBUG][2019-07-08 20:37:01] <mongo> mongo connected
+[DEBUG][2019-07-10 20:22:42] <mongo> connecting to mongo
+[DEBUG][2019-07-10 20:22:42] <mongo> mongo connected

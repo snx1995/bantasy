@@ -1,5 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
-const logger = require("../../logger");
+const logger = require("../logger");
 
 
 const MongoDB = new MongoClient(config.mongo.url, {useNewUrlParser: true});
