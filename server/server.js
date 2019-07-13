@@ -13,7 +13,7 @@ process.on("uncaughtException", err => {
 
 const storage = multer.diskStorage({
     destination (req, file, cb) {
-        cb(null, './web/resource');
+        cb(null, '../static/resource');
     },
     filename (req, f, cb) {
         const type = f.originalname.substring(f.originalname.lastIndexOf('.') + 1);
