@@ -24,7 +24,7 @@ const Article = {
                         res.send(Results.error());
                     })
                 break;
-                case "t":
+                case "past":
                     const {start, length} = req.query;
                     if (start === undefined || length === undefined) {
                         res.send(Results.lackParam("start || length"));
